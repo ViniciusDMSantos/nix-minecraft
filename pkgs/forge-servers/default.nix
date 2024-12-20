@@ -23,7 +23,7 @@ let
   chain = {
     func = id;
     __functor = self: input:
-      if (lib.typeOf input) == "lambda"
+      if (builtins.typeOf input) == "lambda"
       then self // { func = e: input (self.func e); }
       else self.func input;
   };
